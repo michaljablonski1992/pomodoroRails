@@ -2,19 +2,19 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+
+  namespace :api do
+    namespace :v1 do
+      devise_for :users, controllers: { registrations: "/registrations", sessions:"/sessions" }
+    end
+  end
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
-  namespace :api do
-    namespace :v1 do
-      resources :registrations, only: :create
-      resources :sessions, only: [:create, :destroy]
-    end
-  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
