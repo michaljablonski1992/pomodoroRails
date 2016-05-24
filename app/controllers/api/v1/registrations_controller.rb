@@ -3,7 +3,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   skip_before_filter :verify_authenticity_token
 
   def create
-    build_resource(params[:registration])
+    build_resource(params[:user])
     resource.skip_confirmation!
     if resource.save
       sign_in(resource, :store => false)
