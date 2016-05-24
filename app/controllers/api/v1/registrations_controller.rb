@@ -1,7 +1,7 @@
 class Api::V1::RegistrationsController < Devise::RegistrationsController
-  
+
   def create
-    build_resource
+    build_resource(params[:registration])
     resource.skip_confirmation!
     if resource.save
       sign_in(resource, :store => false)
