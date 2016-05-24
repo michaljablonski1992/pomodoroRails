@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      devise_for :users, controllers: { registrations: "/registrations", sessions:"/sessions" }
+      devise_for :users, controllers: { registrations: "registrations", sessions:"sessions" }
     end
   end
 
