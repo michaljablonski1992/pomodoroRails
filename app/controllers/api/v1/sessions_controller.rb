@@ -1,5 +1,7 @@
 class Api::V1::SessionsController < Devise::SessionsController
 
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
+
   def create
     warden.authenticate!(:scope => resource_name, :store => false, :recall => "#{controller_path}#failure")
     render :status => 200,
