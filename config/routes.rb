@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :registrations, only: :create
-      resources :sessions, only: [:create, :destroy]
+      devise_scope :user do
+        resources :registrations, only: :create
+        resources :sessions, only: [:create, :destroy]
+      end
     end
   end
 
