@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable,
   :trackable, :validatable, :confirmable
 
+  has_one :pomodoros_made
+
 end
