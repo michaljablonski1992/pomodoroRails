@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      get    '/pomodoros_made',     to: 'checkout#show'
-      put    '/pomodoros_made',     to: 'checkout#update'
+      get    '/pomodoros_made',     to: 'pomodoros_made#show'
+      put    '/pomodoros_made',     to: 'pomodoros_made#update'
       devise_scope :user do
         resources :registrations, only: :create
         resources :sessions, only: [:create, :destroy]
