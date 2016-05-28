@@ -10,10 +10,13 @@ class Api::V1::PomodorosMadeController < ApplicationController
   end
 
   def update
-    raise params.inspect
+    pomodoros_count = params[:pomodoros_made][:count]
+    pomodoros_made = current_user.pomodoros_made
+    pomodoros_made.count = pomodoros_count
+    pomodoros_made.save
     render :status => 200,
            :json => { :success => true,
-                      :data => { :pomodoros_count => pomodoros_count } }
+                      :data => { :info => 'Pomodoros updated' } }
   end
 
 end
