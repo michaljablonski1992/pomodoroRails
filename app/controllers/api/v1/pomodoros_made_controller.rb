@@ -1,7 +1,5 @@
 class Api::V1::PomodorosMadeController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token
-
   def show
     pomodoros_count = current_user.pomodoros_made.count
     render :status => 200,
