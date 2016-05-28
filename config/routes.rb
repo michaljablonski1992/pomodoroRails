@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       devise_scope :user do
         resources :registrations, only: :create
         resources :sessions, only: [:create, :destroy]
+        resources :pomodoros_made, only: [:show, :update]
       end
     end
   end

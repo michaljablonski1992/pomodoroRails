@@ -7,4 +7,11 @@ class User < ActiveRecord::Base
 
   has_one :pomodoros_made
 
+  after_create :create_pomodoros_made
+
+
+  def create_pomodoros_made
+    self.create_pomodoros_made
+  end
+
 end
