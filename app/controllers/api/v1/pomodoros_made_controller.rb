@@ -12,8 +12,8 @@ class Api::V1::PomodorosMadeController < ApplicationController
   def update
     auth_token = params[:user][:auth_token]
     pomodoros_count = params[:pomodoros_made][:count]
-    Logger.info "tokenik: #{auth_token}"
-    Logger.info "counddd: #{pomodoros_count}"
+    Rails.logger.info "tokenik: #{auth_token}"
+    Rails.logger.info "counddd: #{pomodoros_count}"
     pomodoros_made = User.where(authentication_token: auth_token).first.pomodoros_made
     pomodoros_made.count = pomodoros_count
     pomodoros_made.save
