@@ -1,4 +1,4 @@
-class Api::V1::SessionsController < Devise::SessionsController
+class Api::V1::PomodorosMadeController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
 
